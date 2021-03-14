@@ -18,6 +18,7 @@
                     <p class="card-text"> {{ $user->email }}</p>
                     <p class="card-text"> {{ $user->bg }}</p>
                     <p class="card-text"> {{ $user->address }}</p>
+                    <p class="card-text"> {{ $user->phone }}</p>
                     <p class="card-text"> {{ $user->last_donated }}</p>
                     <a href="/edit/{{$user->id}}" class="btn btn-primary">Edit info</a>
                 </div>

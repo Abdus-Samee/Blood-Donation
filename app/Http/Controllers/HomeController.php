@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Models\User;
+use App\Mail\BloodMail;
 
 class HomeController extends Controller
 {
@@ -54,5 +56,23 @@ class HomeController extends Controller
         $user->save();
 
         return redirect()->route('home')->with('status', 'Updated information succesfully!');
+    }
+
+    public function email($from, $to){
+        $receiver = User::find($to);
+        $sender = User::find($from);
+
+        $message = 'A request for blood donation of your type. Please contact soon.';
+        $name = $sender->name;
+        $email = $sender->email;
+        $details = [
+            'message' => $message,
+            'name' => $name,
+            'email' => $email
+        ];
+
+        Mail::to($receiver)->send(new BloodMail($details));
+
+        return redirect()->route('list')->with('status', 'Email sent to desired donor successfully.');
     }
 }

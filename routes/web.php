@@ -34,3 +34,5 @@ Route::get('/list', [HomeController::class, 'list'])->name('list');
 Route::get('/edit/{id}', [HomeController::class, 'edit'])->middleware('auth');
 
 Route::post('/edit/{id}', [HomeController::class, 'update'])->middleware('auth');
+
+Route::get('/email/{from}/{to}', [HomeController::class, 'email'])->middleware('auth');
