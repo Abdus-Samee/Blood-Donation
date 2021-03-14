@@ -85,7 +85,7 @@
                             <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Last Donated') }}</label>
 
                             <div class="col-md-6">
-                                <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('phone') }}" autocomplete="Last Donated">
+                                <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" autocomplete="Last Donated">
 
                                 @error('date')
                                     <span class="invalid-feedback" role="alert">
