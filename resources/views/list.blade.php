@@ -19,15 +19,15 @@
                         @endif
                         @if(\Carbon\Carbon::parse($user->last_donated)->lte(\Carbon\Carbon::now()->subMonths(4)) || ($user->last_donated == null))
                             <a class="nav-link" href="/email/{{Auth::user()->id}}/{{$user->id}}">E-mail</a>
-                            @if (session('status'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('status') }}
-                                </div>
-                            @endif
                         @endif
                     </div>
                 </div>
             @endforeach
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
         </div>
     @else
         <div class="d-flex align-items justify-content-center">
